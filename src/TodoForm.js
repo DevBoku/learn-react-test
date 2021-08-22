@@ -9,7 +9,7 @@ function TodoForm({ onInsert }) {
         e.preventDefault();
     }, [onInsert, value]);
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} data-testid="TodoForm">
             <input
                 type="text"
                 role="input"
