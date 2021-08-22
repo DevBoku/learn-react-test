@@ -17,15 +17,15 @@ function TodoApp() {
     ])
     const nextId = useRef(3);
     const onInsert = useCallback((text) => {
-        setTodos(todos.concat({
+        setTodos(todos => todos.concat({
             id: nextId.current,
             text,
             done: false
         }));
         nextId.current += 1;
-    }, [todos]);
+    }, []);
     const onToggle = useCallback((id) => {
-        setTodos(todos.map((todo) => {
+        setTodos(todos => todos.map((todo) => {
             if (todo.id === id) {
                 return {
                     ...todo,
@@ -34,10 +34,10 @@ function TodoApp() {
             }
             return todo;
         }));
-    });
+    }, []);
     const onRemove = useCallback((id) => {
-        setTodos(todos.filter(todo => todo.id !== id));
-    }, [todos]);
+        setTodos(todos => todos.filter(todo => todo.id !== id));
+    }, []);
     return (
         <div>
             <TodoForm onInsert={onInsert} />
