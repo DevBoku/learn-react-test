@@ -14,4 +14,4 @@ function TodoItem({ todo: { id, text, done }, onToggle, onRemove }) {
     </li>;
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);
